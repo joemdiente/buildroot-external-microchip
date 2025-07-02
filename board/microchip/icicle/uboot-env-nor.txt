@@ -1,3 +1,5 @@
+# Clear the first 140 blocks after the script address in case of clobber
+mw.l 8e000258 00000000 140
 ubifsload ${scriptaddr} boot/mpfs_icicle.itb
 ubifsumount
 ubi detach
@@ -8,7 +10,5 @@ bootm loados ${scriptaddr};
 # Try to load a ramdisk if available inside fitImage
 bootm ramdisk;
 bootm prep;
-fdt set /soc/ethernet@20112000 mac-address ${icicle_mac_addr0};
-fdt set /soc/ethernet@20110000 mac-address ${icicle_mac_addr1};
 run design_overlays;
 bootm go;

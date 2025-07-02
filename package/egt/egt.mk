@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-EGT_VERSION = 1.10
+EGT_VERSION = 1.11
 EGT_SITE = https://github.com/linux4sam/egt.git
 EGT_SITE_METHOD = git
 EGT_GIT_SUBMODULES = YES
@@ -146,6 +146,10 @@ EGT_CONF_OPTS += --with-libmagic
 EGT_DEPENDENCIES += file
 else
 EGT_CONF_OPTS += --without-libmagic
+endif
+
+ifeq ($(BR2_PACKAGE_LIBM2D),y)
+EGT_DEPENDENCIES += libm2d
 endif
 
 define EGT_RUN_AUTOGEN
