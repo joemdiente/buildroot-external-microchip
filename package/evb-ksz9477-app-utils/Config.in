@@ -1,0 +1,23 @@
+menuconfig BR2_PACKAGE_EVB_KSZ9477_APP_UTILS
+	bool "Microchip EVB-KSZ9477 app-utils"
+	help
+		This builds utilities available on https://github.com/Microchip-Ethernet/EVB-KSZ9477/tree/master/KSZ/app_utils.
+		
+if BR2_PACKAGE_EVB_KSZ9477_APP_UTILS
+config BR2_PACKAGE_EVB_KSZ9477_APP_UTILS_REGS_BIN
+	bool "regs_bin"
+	help
+		The regs_bin program uses the standard Linux register access API to access the switch or
+		device registers. As such it only works when such function is implemented in the switch or
+		device driver.
+
+		regs_bin = read/write to KSZ registers.
+
+config BR2_PACKAGE_EVB_KSZ9477_APP_UTILS_PTP_CLI
+	bool "ptp_cli"
+	help
+		The ptp_cli program is a command line utility to control the PTP hardware. 
+		It does not have any argument.
+		Note: NOT TESTED!.
+			
+endif
