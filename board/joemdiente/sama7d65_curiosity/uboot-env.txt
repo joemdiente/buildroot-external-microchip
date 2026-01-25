@@ -11,7 +11,7 @@ at91_prepare_display_overlay=test -n $display_var && setenv at91_overlays_config
 at91_prepare_eth_overlay=test -n $eth_phy && setenv at91_overlays_config ${at91_overlays_config}'#'${eth_phy}
 bootargs=console=ttyS0,115200 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait atmel.pm_modes=standby,ulp0 cma=192m
 bootcmd=run at91_display_detect; run bootcmd_boot;
-bootcmd_boot=fatload mmc 0:1 ${loadaddr} sama7d65_curiosity.itb; bootm ${loadaddr}#kernel_dtb${at91_overlays_config}#spidev_eds2#spidev_mikrobus2
+bootcmd_boot=fatload mmc 0:1 ${loadaddr} sama7d65_curiosity_joemdiente.itb; bootm ${loadaddr}#kernel_dtb${at91_overlays_config}#spidev_eds2#spidev_mikrobus2
 bootdelay=1
 ethprime=gmac0
 loadaddr=0x63000000
