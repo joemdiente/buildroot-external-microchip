@@ -19,6 +19,10 @@ dependencies are required.
     gperf gawk expat curl cvs libexpat-dev bzr unzip bc python3-dev \
     wget cpio rsync xxd bmap-tools libgnutls28-dev
 
+For AT91 boards, download and extract the [SAM-BA in-system programmer][16],
+then add the extracted directory to your $PATH environment variable to ensure
+the `sam-ba` binary can be located by buildroot.
+
 In some cases, buildroot will notify that additional host dependencies are
 required.  It will let you know what those are.
 
@@ -29,10 +33,10 @@ For AT91, this buildroot external works only with the specific buildroot-mchp
 version 2025.02-mchp.
 
 For PolarFire SoC, this buildroot external was tested and works with buildroot
-version 2025.02.
+version 2025.02.11.
 
 For PIC64GX, this buildroot external was tested and works with buildroot
-version 2025.02.
+version 2025.02.11.
 
 ## Build
 
@@ -51,7 +55,7 @@ For AT91 configurations, as an example, we use `sama5d4_xplained_graphics_defcon
 For PolarFire SoC configurations, as an example, we use `icicle_defconfig`.
 
     git clone https://github.com/linux4microchip/buildroot-external-microchip.git
-    git clone https://git.busybox.net/buildroot -b 2025.02
+    git clone https://git.busybox.net/buildroot -b 2025.02.11
     cd buildroot
     BR2_EXTERNAL=../buildroot-external-microchip/ make icicle_defconfig
     make
@@ -336,3 +340,4 @@ information.
 [13]: https://github.com/polarfire-soc/icicle-kit-reference-design/releases
 [14]: https://github.com/linux4microchip/buildroot-external-microchip/releases/tag/linux4microchip%2Bfpga-2022.11
 [15]: https://github.com/polarfire-soc/polarfire-soc-discovery-kit-reference-design/releases
+[16]: https://www.microchip.com/en-us/development-tool/SAM-BA-In-system-Programmer
