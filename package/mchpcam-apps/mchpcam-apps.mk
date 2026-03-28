@@ -3,7 +3,7 @@
 # mchpcam-apps
 #
 ################################################################################
-MCHPCAM_APPS_VERSION = linux4microchip-2025.04
+MCHPCAM_APPS_VERSION = linux4microchip-2025.10
 MCHPCAM_APPS_SITE = $(call github,linux4microchip,libcamera-mchp,$(MCHPCAM_APPS_VERSION))
 MCHPCAM_APPS_LICENSE = \
     GPL-2.0+ (utils), \
@@ -22,7 +22,7 @@ MCHPCAM_APPS_CONF_OPTS = \
 	-Dmchpcam=enabled
 
 define MCHPCAM_APPS_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/build/src/apps/mchpcam/mchpcam-still \
+	$(INSTALL) -D -m 0755 $(@D)/buildroot-build/src/apps/mchpcam/mchpcam-still \
 		$(TARGET_DIR)/usr/bin/mchpcam-still
 endef
 
